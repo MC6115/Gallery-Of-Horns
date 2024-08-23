@@ -1,5 +1,5 @@
-function Footer(){
-    return(
+function Footer() {
+    return (
         <>
             <p>Matias Carrillo Sanchez</p>
             <p>Tengo 19 años</p>
