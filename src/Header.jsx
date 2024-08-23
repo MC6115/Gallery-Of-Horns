@@ -1,5 +1,5 @@
-function Header(){
-    return(
+function Header() {
+    return (
         <h1>My Horned Beasts gallery</h1>
     );
 }

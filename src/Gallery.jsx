@@ -1,18 +1,28 @@
 import HornedBeast from './Horned-beast';
-import hornedBeast from './hornedBeast.json';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
 
-function Gallery() {
+function Gallery(props) {
     return (
         <>
-        <section>
-            {
-                hornedBeast.map(data => (
-                    <HornedBeast key={data._id} title={data.title} description={data.description} imageURL={data.image_url} horns={data.horns} />
-                ))
-            }
-        </section>
+            <Container>
+                <Row xs={2} md={4} lg={6}>
+                    {
+                        props.allBeast.map(hornedBeast => (
+                            <HornedBeast
+                                mostrarModal={props.mostrarModal}
+                                key={hornedBeast._id}
+                                title={hornedBeast.title}
+                                description={hornedBeast.description}
+                                imageURL={hornedBeast.image_url}
+                                horns={hornedBeast.horns}
+                            />
+                        ))
+                    }
+                </Row>
+            </Container>
         </>
     );
 }
 
-export default Gallery
+export default Gallery;
