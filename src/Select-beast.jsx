@@ -2,9 +2,9 @@ import { Button, Modal, Card } from 'react-bootstrap';
 
 function SelectBeast(props) {
     return (
-        <Modal show={props.show}>
+        <Modal show={props.show} onHide={props.cerrarModal}>
             <Modal.Dialog>
-                <Modal.Header closeButton onClick={props.cerrarModal}> 
+                <Modal.Header closeButton > 
                     <Modal.Title>{props.selectedBeast.title}</Modal.Title>
                 </Modal.Header>
 
@@ -14,14 +14,13 @@ function SelectBeast(props) {
                         <Card.Body>
                             <Card.Title>{props.selectedBeast.title}</Card.Title>
                             <Card.Text>{props.selectedBeast.description}</Card.Text>
-                            <Button variant="primary">Go somewhere</Button>
                         </Card.Body>
                     </Card>
                 </Modal.Body>
 
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={props.cerrarModal}>Close</Button>
-                    <Button variant="primary">Save changes</Button>
+                    
+                    <Button onClick={props.cerrarModal} variant="primary">close</Button>
                 </Modal.Footer>
             </Modal.Dialog>
         </Modal>
