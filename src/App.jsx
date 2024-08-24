@@ -1,6 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import hornedBeast from './hornedBeast.json';
 import Header from './Header';
 import Gallery from './Gallery';
 import Footer from './Footer';
@@ -11,23 +10,20 @@ function App() {
   const [displayModal, setDisplayModal] = useState(false);
   const [clickedCard, setClickedCard] = useState({});
 
-  function mostrarModal(name) {
-    const namedBeast = hornedBeast.find(beast => beast.title === name);
-    if (namedBeast) {
-      setClickedCard(namedBeast);
+  function mostrarModal(beast) {
+      setClickedCard(beast);
       setDisplayModal(true);
-    }
+    
   }
 
   function cerrarModal() {
     setDisplayModal(false);
-    console.log("intento de cierre");
   }
 
   return (
     <>
       <Header />
-      <Gallery mostrarModal={mostrarModal} allBeast={hornedBeast} />
+      <Gallery mostrarModal={mostrarModal}/>
       <SelectBeast selectedBeast={clickedCard} show={displayModal} cerrarModal={cerrarModal}/>
       <Footer />
     </>
