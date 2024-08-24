@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Button from 'react-bootstrap/Button';
+
 import Card from 'react-bootstrap/Card';
 
 function HornedBeast(props) {
@@ -7,12 +7,13 @@ function HornedBeast(props) {
 
     function favorite() {
         setClicks(Clicks + 1);
+        props.mostrarModal(props.title);
     }
 
     return (
         <>
             <br />
-            <Card style={{ width: '18rem' }} onClick={()=>props.mostrarModal(props.title)}>
+            <Card style={{ width: '18rem' }} onClick={favorite} >
                 <Card.Img variant="top" src={props.imageURL} alt={props.title} />
                 <Card.Body>
                     <Card.Title>{props.title}</Card.Title>
@@ -20,13 +21,9 @@ function HornedBeast(props) {
                         {props.description}
                         <br />
                         Numero de cuernos: {props.horns}
-                    </Card.Text>
-                    <Button onClick={(e) => {
-                        e.stopPropagation(); 
-                        favorite();
-                    }}>
                         Fav - {Clicks}
-                    </Button>
+                    </Card.Text>
+
                 </Card.Body>
             </Card>
             <br />
@@ -35,3 +32,10 @@ function HornedBeast(props) {
 }
 
 export default HornedBeast;
+{/*}
+<Button onClick={(e) => {
+                        e.stopPropagation(); 
+                        favorite();
+                    }}>
+                    </Button>
+                    */}
