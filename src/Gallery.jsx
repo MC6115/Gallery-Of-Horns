@@ -36,7 +36,6 @@ function Gallery(props) {
     function filter(event) {
         const numCuernos = parseInt(event.target.value);
         let gallery = allBeast;
-        console.log("afuera del if", gallery);
         if (numCuernos) {
             gallery = allBeast.filter((criatura) => criatura.horns === numCuernos);
         }
@@ -56,13 +55,13 @@ function Gallery(props) {
                 </Form>
                 <Row xs={2} md={4} lg={6} >
                     {
-                        filteredBeast.map(beast => (
+                        filteredBeast.length > 0 ? filteredBeast.map(beast => (
                             <HornedBeast
                                 mostrarModal={props.mostrarModal}
                                 key={beast._id}
                                 beast={beast}
                             />
-                        ))
+                        )) : null
                     }
                 </Row>
             </Container>
